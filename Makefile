@@ -77,16 +77,17 @@ CC = gcc -Wall -Werror -Wextra
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar -rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar -rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 %.o: %.c
-	$(CC) -I$(INC) -c $^
+	@$(CC) -I$(INC) -c $^
+	@echo "\033[32m█\033[0m\c"
 
 clean :
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re : fclean all
