@@ -12,47 +12,45 @@
 
 #include "libft.h"
 
-static int	ft_intlen(int n, int base)
+static int	ft_intlen(int value, int base)
 {
-	size_t	count;
+	int		i;
 
-	count = 0;
-	if (n < 0)
+	i = 0;
+	if (value < 0 && base == 10)
+		i++;
+	if (value == 0)
+		i++;
+	while (value)
 	{
-		n = -n;
-		count++;
+		value /= base;
+		i++;
 	}
-	while (n != 0)
-	{
-		n /= base;
-		count++;
-	}
-	return (count);
+	return (i);
 }
 
-char		*ft_itoa_base(int n, int base)
+char		*ft_itoa_base(int value, int base)
 {
 	char	*str;
 	int		size;
-	char	c;
-	char	sign;
+	int		sign;
 
-	if (base < 2 || base > 16)
-		return (NULL);
-	sign = (n < 0) ? -1 : 1;
-	size = ft_intlen(n, base);
-	if ((str = (char *)malloc(size * sizeof(char) + 1)) == NULL)
-		return (NULL);
+	size = ft_intlen(value, base);
+	str = (char *)malloc(size * sizeof(char) + 1);
+	sign = (value < 0) ? -1 : 1;
 	str[size--] = '\0';
-	if (n < 0)
+	if (value < 0 && base == 10)
 		str[0] = '-';
-	while (n != 0)
+	if (value == 0)
+		str[0] = '0';
+	while (value)
 	{
-		c = '0';
-		if (n % base * sign >= 10)
-			c += 7;
-		str[size--] = n % base * sign + c;
-		n /= base;
+		str[size] = value % base * sign;
+		if (str[size] >= 10)
+			str[size] += 7;
+		str[size] += '0';
+		value /= base;
+		size--;
 	}
 	return (str);
 }
