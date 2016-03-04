@@ -58,6 +58,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_striter.c\
 		$(STRPATH)/ft_striteri.c\
 		$(STRPATH)/ft_strjoin.c\
+		$(STRPATH)/ft_strlcat.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strlen.c\
 		$(STRPATH)/ft_strmap.c\
@@ -84,9 +85,9 @@ INC = ./includes
 
 CC = gcc -Wall -Werror -Wextra
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	@ar -rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
@@ -94,10 +95,12 @@ $(NAME) : $(OBJ)
 	@$(CC) -I$(INC) -o $@ -c $<
 	@echo "\033[32m█\033[0m\c"
 
-clean :
+clean:
 	@rm -rf $(OBJ)
 
-fclean : clean
+fclean: clean
 	@rm -rf $(NAME)
 
-re : fclean all
+re: fclean all
+
+.PHONY: all clean fclean re
