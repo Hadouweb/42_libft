@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 02:23:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/11/24 03:09:24 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/03/04 20:47:44 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/03/04 20:47:46 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+char	*ft_strndup(char *str, int len)
 {
-	void	*tmp;
+	char	*rep;
 
-	if ((tmp = ft_memalloc(n)) == NULL)
+	if ((rep = (char*)ft_memalloc(len + 1)) == NULL)
 		return (NULL);
-	ft_memcpy(tmp, src, n);
-	ft_memcpy(dst, tmp, n);
-	free(tmp);
-	tmp = NULL;
-	return (dst);
+	ft_strncpy(rep, str, len);
+	rep[len] = '\0';
+	return (rep);
 }
