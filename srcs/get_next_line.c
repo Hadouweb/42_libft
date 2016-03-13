@@ -5,31 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/20 05:23:52 by nle-bret          #+#    #+#             */
-/*   Updated: 2016/02/20 05:26:22 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/09 02:26:47 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/09 05:36:10 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char		*ft_strcpy_limit(char *str, char n)
-{
-	int		i;
-	char	*dst;
-
-	i = 0;
-	while (str[i] && str[i] != n)
-		i++;
-	dst = (char *)ft_memalloc(i + 1);
-	i = 0;
-	while (str[i] && str[i] != n)
-	{
-		dst[i] = str[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
 
 static t_save	*ft_create_fd(int fd_pnum)
 {
@@ -50,7 +31,7 @@ static int		ft_save(t_save **s, char *buf, char **line)
 	if ((eol = ft_strchr(buf, '\n')) != NULL && eol++)
 	{
 		if ((*s)->rest && ft_strchr((*s)->rest, '\n') == NULL)
-			*line = ft_strjoin((*s)->rest, ft_strcpy_limit(buf, '\n'));
+			*line = ft_strjoin_free_s2((*s)->rest, ft_strcpy_limit(buf, '\n'));
 		else
 			*line = ft_strcpy_limit(buf, '\n');
 		tmp = (*s)->rest;
@@ -87,6 +68,19 @@ static t_save	*ft_get_list(t_save **s, int fd)
 	return (lst);
 }
 
+static int		ft_verif_last_line(t_save *lst, char **line, int ret)
+{
+	if (ret != -1 && lst->rest && (*line = ft_strdup(lst->rest)) != NULL)
+	{
+		if (lst->rest && ft_strlen(lst->rest))
+			ret = 1;
+		else
+			ret = 0;
+		ft_strdel(&lst->rest);
+	}
+	return (ret);
+}
+
 int				get_next_line(int const fd, char **line)
 {
 	char			buf[BUFF_SIZE + 1];
@@ -106,12 +100,5 @@ int				get_next_line(int const fd, char **line)
 		if (ft_save(&lst, buf, line))
 			return (1);
 	}
-	if (ret == 0 && lst->rest && (*line = ft_strdup(lst->rest)) != NULL)
-	{
-		ft_strdel(&lst->rest);
-		return (1);
-	}
-	if (ret == -1)
-		return (-1);
-	return (0);
+	return (ft_verif_last_line(lst, line, ret));
 }

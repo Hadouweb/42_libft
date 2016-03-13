@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_free_s2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 00:28:15 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/11/25 03:45:45 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/03/13 04:22:21 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/03/13 04:22:23 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_strjoin_free_s2(char *s1, char *s2)
 {
-	t_list	*list;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	if ((list = (t_list*)malloc(sizeof(t_list))) == NULL)
-		return (NULL);
-	if (!content)
+	i = 0;
+	j = 0;
+	str = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	while (s1[i])
 	{
-		list->content = NULL;
-		list->content_size = 0;
+		str[i] = s1[i];
+		i++;
 	}
-	else
+	while (s2[j])
 	{
-		if ((list->content = malloc(content_size)) == NULL)
-		{
-			free(list);
-			return (NULL);
-		}
-		ft_memcpy(list->content, content, content_size);
-		list->content_size = content_size;
+		str[i] = s2[j];
+		i++;
+		j++;
 	}
-	list->next = NULL;
-	return (list);
+	str[i] = '\0';
+	ft_strdel(&s2);
+	return (str);
 }

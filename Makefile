@@ -29,6 +29,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(LISTPATH)/ft_lstsize.c\
 		$(LISTPATH)/ft_lstsplit.c\
 		$(LISTPATH)/ft_lsttotab.c\
+		$(LISTPATH)/ft_lstprint.c\
 		$(MEMPATH)/ft_bzero.c\
 		$(MEMPATH)/ft_memalloc.c\
 		$(MEMPATH)/ft_memccpy.c\
@@ -55,12 +56,14 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_strclr.c\
 		$(STRPATH)/ft_strcmp.c\
 		$(STRPATH)/ft_strcpy.c\
+		$(STRPATH)/ft_strcpy_limit.c\
 		$(STRPATH)/ft_strdel.c\
 		$(STRPATH)/ft_strdup.c\
 		$(STRPATH)/ft_strequ.c\
 		$(STRPATH)/ft_striter.c\
 		$(STRPATH)/ft_striteri.c\
 		$(STRPATH)/ft_strjoin.c\
+		$(STRPATH)/ft_strjoin_free_s2.c\
 		$(STRPATH)/ft_strlcat.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strlen.c\
