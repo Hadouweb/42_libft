@@ -1,3 +1,5 @@
+.PHONY: all clean fclean re
+
 SRCPATH = ./srcs
 BITPATH = $(SRCPATH)/bit
 ISPATH = $(SRCPATH)/is
@@ -8,6 +10,7 @@ STRPATH = $(SRCPATH)/str
 TABPATH = $(SRCPATH)/tab
 
 NAME = libft.a
+
 SRC = 	$(BITPATH)/ft_printbit.c\
 		$(BITPATH)/ft_reversebit.c\
 		$(ISPATH)/ft_isalnum.c\
@@ -78,10 +81,11 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_toupper.c\
 		$(TABPATH)/ft_tabjoin.c\
 		$(TABPATH)/ft_tablen.c\
+		$(SRCPATH)/get_next_line.c\
 
 OBJ = $(SRC:.c=.o)
 
-INC = ./includes
+INC = -I./includes
 
 CC = gcc -Wall -Werror -Wextra
 
@@ -92,7 +96,7 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 
 %.o: %.c
-	@$(CC) -I$(INC) -o $@ -c $<
+	@$(CC) $(INC) -o $@ -c $<
 	@echo "\033[32m█\033[0m\c"
 
 clean:
@@ -102,5 +106,3 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re
