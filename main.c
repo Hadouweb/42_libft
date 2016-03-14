@@ -89,6 +89,7 @@ int		main(int ac, char **av)
 	t_list	*lst;
 	t_list	*tmp_lst;
 	t_data	tmp;
+	char	**tab;
 
 	lst = NULL;
 	i = 1;
@@ -103,8 +104,15 @@ int		main(int ac, char **av)
 		}
 	}
 	ft_lstdel(&lst, ft_del_content);
-	tmp_lst = ft_lstsplit(ft_strdup(av[1]), ' ');
+	tmp_lst = ft_lstsplit(av[1], ' ');
 	ft_lstprint(tmp_lst, ft_put_void);
+	tab = (char**)ft_lsttotab(tmp_lst);
+	i = 0;
+	while (tab[i])
+	{
+		ft_putendl(tab[i]);
+		i++;
+	}
 	sleep(2);
 	return (0);
 }
