@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_count_word(char const *s, char c)
 {
@@ -69,6 +70,7 @@ t_list		*ft_lstsplit(char const *s, char c)
 	size_t	i;
 	size_t	k;
 	t_list	*list;
+	size_t	size;
 
 	i = 0;
 	k = 0;
@@ -78,11 +80,12 @@ t_list		*ft_lstsplit(char const *s, char c)
 	{
 		while (s[k] && s[k] == c)
 			k++;
+		size = ft_strlen_split(&s[k], c);
 		if (list)
-			ft_lstpush_back(&list, &s[k], ft_strlen_split(&s[k], c));
+			ft_lstpush_back(&list, ft_subtab(&s[k], c), size);
 		else
-			list = ft_lstnew(ft_subtab(&s[k], c), ft_strlen_split(&s[k], c));
-		k += list->content_size;
+			list = ft_lstnew(ft_subtab(&s[k], c), size);
+		k += size;
 		i++;
 	}
 	return (list);
