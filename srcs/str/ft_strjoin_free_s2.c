@@ -20,7 +20,8 @@ char	*ft_strjoin_free_s2(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	str = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if ((str = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
+		return (NULL);
 	while (s1[i])
 	{
 		str[i] = s1[i];

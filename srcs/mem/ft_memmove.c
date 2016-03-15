@@ -23,13 +23,11 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		ft_memcpy(dst, src, n);
 	else
 	{
-		while(n)
+		while (n)
 		{
 			dst_tmp[n - 1] = src_tmp[n - 1];
 			n--;
 		}
 	}
-
-
 	return (dst);
 }
