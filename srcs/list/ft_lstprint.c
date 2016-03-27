@@ -17,7 +17,10 @@ void	ft_lstprint(t_list *lst, void (*print)(void *))
 	while (lst)
 	{
 		ft_putstr("\033[033mcontent : \033[0m[");
-		(*print)(lst->content);
+		if (print)
+			(*print)(lst->content);
+		else
+			ft_putstr(lst->content);
 		ft_putstr("]\t\033[035msize : \033[0m[");
 		ft_putnbr(lst->content_size);
 		ft_putstr("]\n");
