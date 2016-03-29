@@ -83,6 +83,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_strtrim.c\
 		$(STRPATH)/ft_tolower.c\
 		$(STRPATH)/ft_toupper.c\
+		$(STRPATH)/ft_del_char.c\
 		$(TABPATH)/ft_tabjoin.c\
 		$(TABPATH)/ft_tablen.c\
 		$(SRCPATH)/get_next_line.c\
