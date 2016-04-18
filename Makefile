@@ -51,6 +51,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(PRINTPATH)/ft_putstr.c\
 		$(PRINTPATH)/ft_putstr_fd.c\
 		$(PRINTPATH)/ft_putstr_len_fd.c\
+		$(PRINTPATH)/ft_putstr_len_fd_free.c\
 		$(STRPATH)/ft_atoi.c\
 		$(STRPATH)/ft_itoa.c\
 		$(STRPATH)/ft_itoa_base.c\

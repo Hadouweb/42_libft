@@ -86,6 +86,7 @@ void				ft_putchar_fd(char c, int fd);
 int					ft_putchar_len_fd(char c, int fd);
 void				ft_putstr_fd(const char *s, int fd);
 int					ft_putstr_len_fd(char *str, int fd);
+int					ft_putstr_len_fd_free(char **str, int fd);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
