@@ -15,7 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+#include <stdio.h>
 # define BUFF_SIZE 10
 
 typedef struct		s_save
@@ -83,7 +83,9 @@ void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
+int					ft_putchar_len_fd(char c, int fd);
 void				ft_putstr_fd(const char *s, int fd);
+int					ft_putstr_len_fd(char *str, int fd);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
@@ -115,5 +117,12 @@ void				**ft_lsttotab(t_list *l);
 int					ft_tablen(int *t);
 int					*ft_tabjoin(int *t1, int *t2);
 t_list				*ft_lstsplit(char const *s, char c);
+size_t				ft_wlen(wchar_t *wstr);
+int					ft_wcharlen(wchar_t *w);
+int					ft_size_wchar(wchar_t w);
+char				*ft_wconvert_str(char *str, wchar_t *wstr);
+int					ft_wconvert(char *str, wchar_t w);
+char				*ft_strncpy_wchar(char *dst, size_t n, wchar_t *wstr);
+char				*ft_stradd_char(char **s, char c);
 
 #endif
