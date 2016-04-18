@@ -51,6 +51,8 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_atoi.c\
 		$(STRPATH)/ft_itoa.c\
 		$(STRPATH)/ft_itoa_base.c\
+		$(STRPATH)/ft_ulltoa_base.c\
+		$(STRPATH)/ft_lltoa_base.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strchr.c\
 		$(STRPATH)/ft_strclr.c\

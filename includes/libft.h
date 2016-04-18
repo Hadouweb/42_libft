@@ -59,6 +59,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+char				*ft_str_tolower(char *str);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void	**ap);
@@ -104,6 +105,8 @@ void				ft_lstpush(t_list **alst, t_list *new);
 void				ft_printbit(unsigned char octet);
 unsigned char		ft_reversebit(unsigned char octet);
 char				*ft_itoa_base(int n, int base);
+char				*ft_ulltoa_base(unsigned long long value, int base);
+char				*ft_lltoa_base(long long value, int base);
 void				ft_putnbr_base(int n, int base);
 void				ft_lstpush_front(t_list **lst, void const *c, size_t s);
 void				ft_lstpush_back(t_list **lst, void const *c, size_t s);
