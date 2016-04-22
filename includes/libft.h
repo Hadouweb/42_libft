@@ -60,6 +60,7 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 char				*ft_str_tolower(char *str);
+void				ft_free_tab(char **tab);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void	**ap);
@@ -125,5 +126,6 @@ char				*ft_wconvert_str(char *str, wchar_t *wstr);
 int					ft_wconvert(char *str, wchar_t w);
 char				*ft_strncpy_wchar(char *dst, size_t n, wchar_t *wstr);
 char				*ft_stradd_char(char **s, char c);
+int					ft_intlen(int value);
 
 #endif
