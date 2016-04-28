@@ -71,6 +71,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_striteri.c\
 		$(STRPATH)/ft_strjoin.c\
 		$(STRPATH)/ft_strjoin_free_s2.c\
+		$(STRPATH)/ft_strjoin_free_s1.c\
 		$(STRPATH)/ft_strlcat.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strlen.c\
