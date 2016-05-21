@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	ft_intlen_base(int value, int base)
+static int	ft_intlen(int value, int base)
 {
 	int		i;
 
@@ -35,7 +35,7 @@ char		*ft_itoa_base(int value, int base)
 	int		size;
 	int		sign;
 
-	size = ft_intlen_base(value, base);
+	size = ft_intlen(value, base);
 	if ((str = (char *)ft_memalloc(size + 1)) == NULL)
 		return (NULL);
 	sign = (value < 0) ? -1 : 1;

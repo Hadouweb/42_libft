@@ -8,7 +8,6 @@ MEMPATH = $(SRCPATH)/mem
 PRINTPATH = $(SRCPATH)/print
 STRPATH = $(SRCPATH)/str
 TABPATH = $(SRCPATH)/tab
-UNICODE = $(SRCPATH)/unicode
 
 NAME = libft.a
 
@@ -42,7 +41,6 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(MEMPATH)/ft_memset.c\
 		$(PRINTPATH)/ft_putchar.c\
 		$(PRINTPATH)/ft_putchar_fd.c\
-		$(PRINTPATH)/ft_putchar_len_fd.c\
 		$(PRINTPATH)/ft_putendl.c\
 		$(PRINTPATH)/ft_putendl_fd.c\
 		$(PRINTPATH)/ft_putnbr.c\
@@ -50,13 +48,9 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(PRINTPATH)/ft_putnbr_fd.c\
 		$(PRINTPATH)/ft_putstr.c\
 		$(PRINTPATH)/ft_putstr_fd.c\
-		$(PRINTPATH)/ft_putstr_len_fd.c\
-		$(PRINTPATH)/ft_putstr_len_fd_free.c\
 		$(STRPATH)/ft_atoi.c\
 		$(STRPATH)/ft_itoa.c\
 		$(STRPATH)/ft_itoa_base.c\
-		$(STRPATH)/ft_ulltoa_base.c\
-		$(STRPATH)/ft_lltoa_base.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strchr.c\
 		$(STRPATH)/ft_strclr.c\
@@ -71,7 +65,6 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_striteri.c\
 		$(STRPATH)/ft_strjoin.c\
 		$(STRPATH)/ft_strjoin_free_s2.c\
-		$(STRPATH)/ft_strjoin_free_s1.c\
 		$(STRPATH)/ft_strlcat.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strlen.c\
@@ -91,18 +84,9 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_tolower.c\
 		$(STRPATH)/ft_toupper.c\
 		$(STRPATH)/ft_del_char.c\
-		$(STRPATH)/ft_stradd_char.c\
-		$(STRPATH)/ft_free_tab.c\
-		$(STRPATH)/ft_intlen.c\
 		$(TABPATH)/ft_tabjoin.c\
 		$(TABPATH)/ft_tablen.c\
 		$(SRCPATH)/get_next_line.c\
-		$(UNICODE)/ft_size_wchar.c\
-		$(UNICODE)/ft_strncpy_wchar.c\
-		$(UNICODE)/ft_wcharlen.c\
-		$(UNICODE)/ft_wconvert.c\
-		$(UNICODE)/ft_wconvert_str.c\
-		$(UNICODE)/ft_wlen.c\
 
 OBJ = $(SRC:.c=.o)
 

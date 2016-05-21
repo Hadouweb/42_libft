@@ -18,18 +18,3 @@ int		ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
-char	*ft_str_tolower(char *str)
-{
-	int		i;
-	char	*ret;
-
-	i = 0;
-	ret = ft_strdup(str);
-	while (ret[i])
-	{
-		ret[i] = ft_tolower(ret[i]);
-		i++;
-	}
-	return (ret);
-}

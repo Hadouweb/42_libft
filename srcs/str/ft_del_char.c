@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/18 11:29:10 by nle-bret          #+#    #+#             */
-/*   Updated: 2016/04/18 11:29:12 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/05/20 18:54:23 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/05/20 18:54:25 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char		*ft_del_char(char *str, char c)
 			j++;
 		i++;
 	}
-	if ((new_str = (char*)ft_memalloc(ft_strlen(str - j) + 1)) == NULL)
+	if ((new_str = (char*)ft_memalloc(ft_strlen(str) - j + 1)) == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;

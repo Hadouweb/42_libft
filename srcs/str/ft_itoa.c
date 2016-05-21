@@ -12,6 +12,23 @@
 
 #include "libft.h"
 
+static int	ft_intlen(int value)
+{
+	int		i;
+
+	i = 0;
+	if (value < 0)
+		i++;
+	if (value == 0)
+		i++;
+	while (value)
+	{
+		value /= 10;
+		i++;
+	}
+	return (i);
+}
+
 char		*ft_itoa(int value)
 {
 	char	*str;
