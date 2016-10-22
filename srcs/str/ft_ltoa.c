@@ -18,7 +18,7 @@ char		*ft_ltoa(long value)
 	int		size;
 	int		sign;
 
-	size = ft_intlen(value);
+	size = ft_nblen(value);
 	str = (char *)ft_memalloc(size * sizeof(char) + 1);
 	if (!str)
 		return (NULL);

@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 17:24:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/11/24 17:25:38 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/10/22 11:07:46 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/10/22 11:07:50 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int value)
+int	ft_nblen(long long value)
 {
-	char	*str;
-	int		size;
-	int		sign;
+    int		i;
 
-	size = ft_nblen(value);
-	str = (char *)ft_memalloc(size * sizeof(char) + 1);
-	if (!str)
-		return (NULL);
-	sign = (value < 0) ? -1 : 1;
-	str[size--] = '\0';
-	if (value < 0)
-		str[0] = '-';
-	if (value == 0)
-		str[0] = '0';
-	while (value)
-	{
-		str[size] = value % 10 * sign + '0';
-		value /= 10;
-		size--;
-	}
-	return (str);
+    i = 0;
+    if (value < 0)
+        i++;
+    if (value == 0)
+        i++;
+    while (value)
+    {
+        value /= 10;
+        i++;
+    }
+    return (i);
 }
