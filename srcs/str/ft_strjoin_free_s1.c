@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free_s2.c                               :+:      :+:    :+:   */
+/*   ft_strjoin_free_s1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strjoin_free_s2(char *s1, char *s2)
+char	*ft_strjoin_free_s1(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -34,7 +34,6 @@ char	*ft_strjoin_free_s2(char *s1, char *s2)
 		j++;
 	}
 	str[i] = '\0';
-	ft_strdel(&s1);
 	ft_strdel(&s2);
 	return (str);
 }

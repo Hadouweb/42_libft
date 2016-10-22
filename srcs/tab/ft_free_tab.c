@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free_s2.c                               :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/13 04:22:21 by nle-bret          #+#    #+#             */
-/*   Updated: 2016/03/13 04:22:23 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/10/22 15:18:07 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/10/22 15:18:09 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_free_s2(char *s1, char *s2)
+void    ft_free_tab(char **tab)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+    int     i;
 
-	i = 0;
-	j = 0;
-	if ((str = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
-		return (NULL);
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = '\0';
-	ft_strdel(&s1);
-	ft_strdel(&s2);
-	return (str);
+    i = 0;
+    while(tab[i])
+    {
+        ft_strdel(&tab[i]);
+        i++;
+    }
+    ft_memdel((void**)tab);
 }

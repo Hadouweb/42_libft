@@ -76,6 +76,7 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strjoin_free_s2(char *s1, char *s2);
+char				*ft_strjoin_free_s1(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
@@ -114,6 +115,7 @@ int					ft_lstsize(t_list *l);
 void				**ft_lsttotab(t_list *l);
 int					ft_tablen(int *t);
 int					*ft_tabjoin(int *t1, int *t2);
+void                ft_free_tab(char **tab);
 t_list				*ft_lstsplit(char const *s, char c);
 
 #endif
