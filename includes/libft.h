@@ -36,7 +36,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlen_limit(const char *s, char c);
-int	                ft_nblen(long long value);
+int					ft_nblen(long long value);
 char				*ft_strdup(const char *s1);
 char				*ft_strndup(char *str, int len);
 char				*ft_strcpy(char *dst, const char *src);
@@ -50,7 +50,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_del_char(char *str, char c);
-char	            *ft_stradd_char(char **s, char c);
+char				*ft_stradd_char(char **s, char c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
@@ -115,7 +115,7 @@ int					ft_lstsize(t_list *l);
 void				**ft_lsttotab(t_list *l);
 int					ft_tablen(int *t);
 int					*ft_tabjoin(int *t1, int *t2);
-void                ft_free_tab(char **tab);
+void				ft_free_tab(char **tab);
 t_list				*ft_lstsplit(char const *s, char c);
 
 #endif

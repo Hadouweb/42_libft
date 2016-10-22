@@ -12,15 +12,15 @@
 
 #include "libft.h"
 
-void    ft_free_tab(char **tab)
+void	ft_free_tab(char **tab)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    while(tab[i])
-    {
-        ft_strdel(&tab[i]);
-        i++;
-    }
-    ft_memdel((void**)tab);
+	i = 0;
+	while (tab[i])
+	{
+		ft_strdel(&tab[i]);
+		i++;
+	}
+	ft_memdel((void**)tab);
 }
