@@ -29,6 +29,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(LISTPATH)/ft_lstsize.c\
 		$(LISTPATH)/ft_lstsplit.c\
 		$(LISTPATH)/ft_lsttotab.c\
+		$(LISTPATH)/ft_push_after_node.c\
 		$(LISTPATH)/ft_lstprint.c\
 		$(MEMPATH)/ft_bzero.c\
 		$(MEMPATH)/ft_memalloc.c\

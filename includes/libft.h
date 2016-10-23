@@ -111,6 +111,7 @@ char				*ft_itoa_base(int n, int base);
 void				ft_putnbr_base(int n, int base);
 void				ft_lstpush_front(t_list **lst, void const *c, size_t s);
 void				ft_lstpush_back(t_list **lst, void const *c, size_t s);
+void 				ft_push_after_node(t_list *prev_node, t_list *node);
 int					ft_lstsize(t_list *l);
 void				**ft_lsttotab(t_list *l);
 int					ft_tablen(int *t);
