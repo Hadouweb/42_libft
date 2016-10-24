@@ -1,7 +1,7 @@
 
 #include "libft.h"
 
-void 	ft_lstd_pushbefore_node(t_listd *node, t_listd *new_node)
+void 	ft_lstd_pushbefore_node(t_listd **lst, t_listd *node, t_listd *new_node)
 {
 	if (node->prev != NULL)
 	{
@@ -10,5 +10,11 @@ void 	ft_lstd_pushbefore_node(t_listd *node, t_listd *new_node)
 		new_node->next = node;
 		node->prev = new_node;
 		new_node->prev = n_prev;
+	}
+	else
+	{
+		node->prev = new_node;
+		new_node->next = node;
+		*lst = new_node;
 	}
 }
