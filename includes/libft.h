@@ -97,6 +97,14 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_listd
+{
+	void			*content;
+	size_t			content_size;
+	struct s_listd	*next;
+	struct s_listd	*prev;
+}					t_listd;
+
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -111,7 +119,11 @@ char				*ft_itoa_base(int n, int base);
 void				ft_putnbr_base(int n, int base);
 void				ft_lstpush_front(t_list **lst, void const *c, size_t s);
 void				ft_lstpush_back(t_list **lst, void const *c, size_t s);
-void 				ft_push_after_node(t_list *prev_node, t_list *node);
+t_listd				*ft_lstd_new(void const *content, size_t content_size);
+void				ft_lstd_print(t_listd *lst, void (*print)(void *));
+void				ft_lstd_pushback(t_listd **l, void const *c, size_t s);
+void 				ft_lstd_pushbefore_node(t_listd *node, t_listd *new_node);
+void 				ft_lst_pushafter_node(t_list *prev_node, t_list *node);
 int					ft_lstsize(t_list *l);
 void				**ft_lsttotab(t_list *l);
 int					ft_tablen(int *t);
