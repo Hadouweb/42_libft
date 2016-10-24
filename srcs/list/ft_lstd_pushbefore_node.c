@@ -13,8 +13,8 @@ void 	ft_lstd_pushbefore_node(t_listd **lst, t_listd *node, t_listd *new_node)
 	}
 	else
 	{
-		node->prev = new_node;
 		new_node->next = node;
+		node->prev = new_node;
 		*lst = new_node;
 	}
 }

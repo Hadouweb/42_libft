@@ -18,7 +18,7 @@ static void		ft_lstd_print_link(t_listd *node, void(*print)(void *))
 	{
 		ft_putstr("\t\033[036mprev:\033[0m[");
 		if (node->prev != NULL)
-			(*print)(node->content);
+			(*print)(node->prev->content);
 		else
 			ft_putstr("NULL");
 		ft_putstr("]");
@@ -27,7 +27,7 @@ static void		ft_lstd_print_link(t_listd *node, void(*print)(void *))
 	{
 		ft_putstr("\t\033[032mnext:\033[0m[");
 		if (node->next != NULL)
-			(*print)(node->content);
+			(*print)(node->next->content);
 		else
 			ft_putstr("NULL");
 		ft_putstr("]");

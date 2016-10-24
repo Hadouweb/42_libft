@@ -18,6 +18,8 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(ISPATH)/ft_isascii.c\
 		$(ISPATH)/ft_isdigit.c\
 		$(ISPATH)/ft_isprint.c\
+		$(ISPATH)/ft_islower.c\
+		$(ISPATH)/ft_isupper.c\
 		$(LISTPATH)/ft_lstadd.c\
 		$(LISTPATH)/ft_lstdel.c\
 		$(LISTPATH)/ft_lstdelone.c\
