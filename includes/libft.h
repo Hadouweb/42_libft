@@ -120,7 +120,7 @@ void				ft_putnbr_base(int n, int base);
 void				ft_lstpush_front(t_list **lst, void const *c, size_t s);
 void				ft_lstpush_back(t_list **lst, void const *c, size_t s);
 t_listd				*ft_lstd_new(void const *content, size_t content_size);
-void				ft_lstd_print(t_listd *lst, void (*print)(void *));
+void				ft_lstd_print(t_listd *lst, void (*print)(void *), int print_link);
 void				ft_lstd_pushback(t_listd **l, void const *c, size_t s);
 void 				ft_lstd_pushbefore_node(t_listd *node, t_listd *new_node);
 void 				ft_lst_pushafter_node(t_list *prev_node, t_list *node);

@@ -12,7 +12,30 @@
 
 #include "libft.h"
 
-void	ft_lstd_print(t_listd *lst, void (*print)(void *))
+static void		ft_lstd_print_link(t_listd *node, void(*print)(void *))
+{
+	if (print)
+	{
+		ft_putstr("\t\033[036mprev:\033[0m[");
+		if (node->prev != NULL)
+			(*print)(node->content);
+		else
+			ft_putstr("NULL");
+		ft_putstr("]");
+	}
+	if (print)
+	{
+		ft_putstr("\t\033[032mnext:\033[0m[");
+		if (node->next != NULL)
+			(*print)(node->content);
+		else
+			ft_putstr("NULL");
+		ft_putstr("]");
+	}
+}
+
+void			ft_lstd_print(t_listd *lst, void (*print)(void *),
+	int print_link)
 {
 	while (lst)
 	{
@@ -23,7 +46,10 @@ void	ft_lstd_print(t_listd *lst, void (*print)(void *))
 			ft_putstr(lst->content);
 		ft_putstr("]\t\033[035msize : \033[0m[");
 		ft_putnbr(lst->content_size);
-		ft_putstr("]\n");
+		ft_putstr("] ");
+		if (print_link)
+			ft_lstd_print_link(lst, print);
+		ft_putstr("\n");
 		lst = lst->next;
 	}
 }
