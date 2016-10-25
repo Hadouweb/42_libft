@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstd_print.c                                      :+:      :+:    :+:   */
+/*   ft_lstd_print.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/13 04:51:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2016/03/13 04:51:10 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/10/25 08:53:24 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/10/25 08:53:26 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_lstd_print_link(t_listd *node, void(*print)(void *))
+static void		ft_lstd_print_link(t_listd *node, void (*print)(void *))
 {
 	if (print)
 	{
