@@ -14,6 +14,9 @@
 
 void	ft_putendl(char const *s)
 {
-	write(1, s, ft_strlen(s));
+	if (s == NULL)
+		write(1, "NULL", 4);
+	else
+		write(1, s, ft_strlen(s));
 	write(1, "\n", 1);
 }
