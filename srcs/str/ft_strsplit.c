@@ -74,7 +74,7 @@ char		**ft_strsplit(char const *s, char c)
 	i = 0;
 	k = 0;
 	nb_word = ft_count_word(s, c);
-	if ((str = (char **)ft_memalloc(nb_word * sizeof(char *) + 1)) == NULL)
+	if ((str = (char **)ft_memalloc((nb_word + 1) * sizeof(char *))) == NULL)
 		return (NULL);
 	while (i < nb_word)
 	{
@@ -84,6 +84,6 @@ char		**ft_strsplit(char const *s, char c)
 		k += ft_strlen(str[i]);
 		i++;
 	}
-	str[i] = 0;
+	str[i] = NULL;
 	return (str);
 }
