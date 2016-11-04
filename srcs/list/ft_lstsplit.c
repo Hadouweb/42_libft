@@ -87,6 +87,5 @@ t_list		*ft_lstsplit(char const *s, char c)
 		k += size;
 		ft_strdel(&tmp);
 	}
-
 	return (list);
 }

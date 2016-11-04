@@ -32,7 +32,6 @@ static int		ft_save(t_save **s, char *buf, char **line)
 
 	if ((eol = ft_strchr(buf, '\n')) != NULL && eol++)
 	{
-
 		if ((*s)->rest && ft_strchr((*s)->rest, '\n') == NULL)
 			*line = ft_strjoin_free_s2((*s)->rest, ft_strcpy_limit(buf, '\n'));
 		else

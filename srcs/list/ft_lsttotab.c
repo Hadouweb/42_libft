@@ -21,7 +21,7 @@ void	**ft_lsttotab(t_list *l)
 
 	list = l;
 	size = ft_lstsize(l);
-	if ((tab = (void **)ft_memalloc(size * sizeof(void *) + 1)) == NULL)
+	if ((tab = (void **)ft_memalloc((size + 1) * sizeof(void *))) == NULL)
 		return (NULL);
 	i = 0;
 	while (i < size && list)
