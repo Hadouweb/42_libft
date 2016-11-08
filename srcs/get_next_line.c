@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static t_save	*ft_create_fd(int fd_pnum)
 {
