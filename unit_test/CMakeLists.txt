@@ -5,7 +5,7 @@ include_directories(lib/gtest-1.7.0/include)
 add_subdirectory(lib/gtest-1.7.0)
 
 set(SRCS
-    basic_tests/basic_check.cpp)
+    bit_tests/basic_check_bit.cpp)
 
 add_executable(runBasicTest ${SRCS})
 
