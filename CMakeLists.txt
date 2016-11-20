@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(libft)
 
+SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -coverage" )
+
 add_subdirectory(unit_test)
 
 set(SRCS
