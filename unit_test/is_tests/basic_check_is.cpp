@@ -15,7 +15,7 @@ extern "C" {
 }
 #endif
 
-TEST(ft_isalnum, test_) {
+TEST(ft_isalnum, test_true) {
 	EXPECT_TRUE(ft_isalnum('0'));
 	EXPECT_TRUE(ft_isalnum('5'));
 	EXPECT_TRUE(ft_isalnum('z'));
