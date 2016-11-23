@@ -3,7 +3,7 @@ project(libft)
 
 SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}" )
 
-add_subdirectory(unit_test)
+#add_subdirectory(unit_test)
 
 set(SRCS
     srcs/bit/ft_printbit.c
