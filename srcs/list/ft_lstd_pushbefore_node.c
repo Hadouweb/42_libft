@@ -12,7 +12,8 @@
 
 #include "libft.h"
 
-void	ft_lstd_pushbefore_node(t_listd **lst, t_listd *node, t_listd *new_node)
+void	ft_lstd_pushbefore_node(t_listd_info **lst,
+	t_listd *node, t_listd *new_node)
 {
 	t_listd *n_prev;
 
@@ -28,6 +29,6 @@ void	ft_lstd_pushbefore_node(t_listd **lst, t_listd *node, t_listd *new_node)
 	{
 		new_node->next = node;
 		node->prev = new_node;
-		*lst = new_node;
+		(*lst)->beg = new_node;
 	}
 }

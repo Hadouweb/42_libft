@@ -34,22 +34,32 @@ static void		ft_lstd_print_link(t_listd *node, void (*print)(void *))
 	}
 }
 
-void			ft_lstd_print(t_listd *lst, void (*print)(void *),
+void			ft_lstd_print(t_listd_info *lst, void (*print)(void *),
 	int print_link)
 {
-	while (lst)
+	t_listd		*l;
+
+	if (lst == NULL)
+		return ;
+	l = lst->beg;
+	while (l)
 	{
-		ft_putstr("\033[033mcontent : \033[0m[");
-		if (print)
-			(*print)(lst->content);
+		if (l == lst->beg)
+			ft_putstr("\e[38;5;76mcontent : \033[0m[");
+		else if (l == lst->end)
+			ft_putstr("\e[38;5;226mcontent : \033[0m[");
 		else
-			ft_putstr(lst->content);
-		ft_putstr("]\t\033[035msize : \033[0m[");
-		ft_putnbr(lst->content_size);
+			ft_putstr("\e[38;5;208mcontent : \033[0m[");
+		if (print)
+			(*print)(l->content);
+		else
+			ft_putstr(l->content);
+		ft_putstr("]\t\e[38;5;87msize : \033[0m[");
+		ft_putnbr(l->content_size);
 		ft_putstr("] ");
 		if (print_link)
-			ft_lstd_print_link(lst, print);
+			ft_lstd_print_link(l, print);
 		ft_putstr("\n");
-		lst = lst->next;
+		l = l->next;
 	}
 }

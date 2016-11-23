@@ -108,6 +108,13 @@ typedef struct		s_listd
 	struct s_listd	*prev;
 }					t_listd;
 
+typedef struct		s_listd_info
+{
+	t_listd			*beg;
+	t_listd			*end;
+	unsigned int	size;
+}					t_listd_info;
+
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -122,12 +129,16 @@ char				*ft_itoa_base(int n, int base);
 void				ft_putnbr_base(int n, int base);
 void				ft_lstpush_front(t_list **lst, void const *c, size_t s);
 void				ft_lstpush_back(t_list **lst, void const *c, size_t s);
+
+
 t_listd				*ft_lstd_new(void const *content, size_t content_size);
-void				ft_lstd_print(t_listd *lst, void (*print)(void *),
+void				ft_lstd_print(t_listd_info *lst, void (*print)(void *),
 	int print_link);
-void				ft_lstd_pushback(t_listd **l, void const *c, size_t s);
-void				ft_lstd_pushbefore_node(t_listd **lst, t_listd *node,
+void				ft_lstd_pushback(t_listd_info **l, void const *c, size_t s);
+void				ft_lstd_pushbefore_node(t_listd_info **l, t_listd *node,
 	t_listd *new_node);
+
+
 void				ft_lst_pushafter_node(t_list *prev_node, t_list *node);
 int					ft_lstsize(t_list *l);
 void				**ft_lsttotab(t_list *l);
