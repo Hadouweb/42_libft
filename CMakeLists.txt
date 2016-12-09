@@ -94,7 +94,14 @@ set(SRCS
     srcs/tab/ft_tablen.c
     srcs/get_next_line.c
     srcs/str/ft_nblen.c
-    srcs/str/ft_atoi_base.c)
+    srcs/str/ft_atoi_base.c
+    srcs/tree/ft_tree_add.c
+    srcs/tree/ft_tree_new.c
+    srcs/tree/ft_tree_preorder.c
+    srcs/tree/ft_tree_inorder.c
+    srcs/tree/ft_tree_postorder.c
+    srcs/tree/ft_tree_print_node.c
+    )
 
 set(HEADERS includes/libft.h)
 

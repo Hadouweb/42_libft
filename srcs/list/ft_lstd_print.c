@@ -62,7 +62,4 @@ void			ft_lstd_print(t_listd_info *lst, void (*print)(void *),
 		ft_putstr("\n");
 		l = l->next;
 	}
-	ft_putstr("\e[38;5;70mTotal size : ");
-	ft_putnbr(lst->size);
-	ft_putstr("\033[0m\n");
 }
