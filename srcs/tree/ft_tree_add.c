@@ -18,8 +18,10 @@ t_tree	*ft_tree_add(t_tree *ref_node, enum e_tree edge, const void *content,
 	t_tree	*new_node;
 
 	new_node = ft_tree_new(content, content_size);
-	if (!new_node)
+	if (new_node == NULL)
 		return (NULL);
+	new_node->depth = ref_node->depth + 1;
+	new_node->parent = ref_node;
 	if (edge == TREE_LEFT)
 		ref_node->left = new_node;
 	else if (edge == TREE_RIGHT)

@@ -119,6 +119,8 @@ typedef struct		s_tree
 {
 	void			*content;
 	size_t			content_size;
+	int 			depth;
+	struct s_tree	*parent;
 	struct s_tree	*left;
 	struct s_tree	*right;
 }					t_tree;

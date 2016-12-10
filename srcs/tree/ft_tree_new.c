@@ -35,5 +35,7 @@ t_tree	*ft_tree_new(const void *content, size_t content_size)
 	}
 	node->left = NULL;
 	node->right = NULL;
+	node->depth = 0;
+	node->parent = NULL;
 	return (node);
 }
