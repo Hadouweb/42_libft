@@ -135,7 +135,7 @@ void				ft_tree_postorder(t_tree *node, void (*f)(t_tree *node));
 t_tree				*ft_tree_new(const void *content, size_t content_size);
 t_tree				*ft_tree_add(t_tree *ref_node, enum e_tree edge,
 	const void *content, size_t content_size);
-void				ft_tree_print_node(t_tree *node, void (*print)(void *));
+void				ft_tree_print_node(t_tree *node);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

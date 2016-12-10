@@ -12,13 +12,10 @@
 
 #include "libft.h"
 
-void	ft_tree_print_node(t_tree *node, void (*print)(void *))
+void	ft_tree_print_node(t_tree *node)
 {
 	ft_putstr("\033[033mcontent : \033[0m[");
-	if (print)
-		(*print)(node->content);
-	else
-		ft_putstr((char*)node->content);
+	ft_putstr((char*)node->content);
 	ft_putstr("]\t\033[035msize : \033[0m[");
 	ft_putnbr(node->content_size);
 	ft_putstr("]\n");
