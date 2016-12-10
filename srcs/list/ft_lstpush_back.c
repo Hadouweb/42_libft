@@ -12,7 +12,22 @@
 
 #include "libft.h"
 
-void	ft_lstpush_back(t_list **l, void const *c, size_t s)
+void	ft_lstpush_back_alloc(t_list **l, void const *c, size_t s)
+{
+	t_list	*list;
+
+	list = *l;
+	if (list)
+	{
+		while (list->next)
+			list = list->next;
+		list->next = ft_lstnew_alloc(c, s);
+	}
+	else
+		*l = ft_lstnew_alloc(c, s);
+}
+
+void	ft_lstpush_back(t_list **l, void *c, size_t s)
 {
 	t_list	*list;
 

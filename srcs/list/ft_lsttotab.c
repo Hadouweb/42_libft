@@ -26,7 +26,7 @@ void	**ft_lsttotab(t_list *l)
 	i = 0;
 	while (i < size && list)
 	{
-		if ((tab[i] = (void *)ft_memalloc(list->content_size)) == NULL)
+		if ((tab[i] = ft_memalloc(list->content_size)) == NULL)
 			return (NULL);
 		tab[i] = memcpy(tab[i], list->content, list->content_size);
 		list = list->next;

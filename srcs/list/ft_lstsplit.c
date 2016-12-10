@@ -83,7 +83,7 @@ t_list		*ft_lstsplit(char const *s, char c)
 		if (list)
 			ft_lstpush_back(&list, tmp, size);
 		else
-			list = ft_lstnew(tmp, size);
+			list = ft_lstnew_alloc(tmp, size);
 		k += size;
 		ft_strdel(&tmp);
 	}
