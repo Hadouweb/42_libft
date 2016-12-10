@@ -17,15 +17,15 @@ void	ft_lstd_pushback(t_listd_info **l, void const *c, size_t s)
 	t_listd	*list;
 
 	if (*l == NULL)
-		if ((*l = (t_listd_info*)ft_memalloc(sizeof(t_listd_info))) == NULL)
-			return ;
+	{
+		if ((*l = (t_listd_info *) ft_memalloc(sizeof(t_listd_info))) == NULL)
+			return;
+	}
 	list = (*l)->beg;
 	if (list)
 	{
 		while (list->next)
-		{
 			list = list->next;
-		}
 		list->next = ft_lstd_new(c, s);
 		list->next->prev = list;
 		(*l)->end = list->next;
