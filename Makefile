@@ -112,7 +112,7 @@ OBJ = $(SRC:.c=.o)
 
 INC = -I./includes
 
-CC = gcc -Wall -Werror -Wextra
+CC = gcc -Wall -Werror -Wextra -g
 
 all: $(NAME)
 
