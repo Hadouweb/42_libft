@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_tree_preorder(t_tree *node, void (*f)(t_tree *node))
+void	ft_tree_preorder(t_tree *node, void (*f)(void *node))
 {
 	if (node == NULL)
 		return ;

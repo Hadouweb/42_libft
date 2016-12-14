@@ -18,15 +18,6 @@
 
 # define BUFF_SIZE 10
 
-typedef struct		s_save
-{
-	int				fd_num;
-	char			*rest;
-	struct s_save	*next;
-}					t_save;
-
-int					get_next_line(int const fd, char **line);
-
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -78,8 +69,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strjoin_free_s2(char *s1, char *s2);
-char				*ft_strjoin_free_s1(char *s1, char *s2);
+char				*ft_strjoin_free(char *s1, char *s2, int free_token);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
@@ -93,32 +83,8 @@ void				ft_putstr_fd(const char *s, int fd);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
-
-typedef struct		s_listd
-{
-	void			*content;
-	size_t			content_size;
-	struct s_listd	*next;
-	struct s_listd	*prev;
-}					t_listd;
-
-typedef struct		s_listd_info
-{
-	t_listd			*beg;
-	t_listd			*end;
-	unsigned int	size;
-}					t_listd_info;
-
 typedef struct		s_tree
 {
-	void			*content;
-	size_t			content_size;
 	int				depth;
 	struct s_tree	*parent;
 	struct s_tree	*left;
@@ -131,54 +97,60 @@ enum	e_tree
 	TREE_RIGHT
 };
 
-void				ft_tree_preorder(t_tree *node, void (*f)(t_tree *node));
-void				ft_tree_inorder(t_tree *node, void (*f)(t_tree *node));
-void				ft_tree_postorder(t_tree *node, void (*f)(t_tree *node));
-t_tree				*ft_tree_new_alloc(const void *content,
-	size_t content_size);
-t_tree				*ft_tree_new(void *content, size_t content_size);
-t_tree				*ft_tree_add_alloc(t_tree *ref_node, enum e_tree edge,
-	const void *content, size_t content_size);
 t_tree				*ft_tree_add(t_tree *ref_node, enum e_tree edge,
-	void *content, size_t content_size);
-void				ft_tree_print_node(t_tree *node);
+						t_tree *node);
+void				ft_tree_inorder(t_tree *node, void (*f)(void *node));
+void				ft_tree_preorder(t_tree *node, void (*f)(void *node));
+void				ft_tree_postorder(t_tree *node, void (*f)(void *node));
 
 void				ft_printbit(unsigned char octet);
 unsigned char		ft_reversebit(unsigned char octet);
 char				*ft_itoa_base(int n, int base);
 void				ft_putnbr_base(int n, int base);
 
-t_list				*ft_lstnew_alloc(void const *content, size_t content_size);
-t_list				*ft_lstnew(void *content, size_t content_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *node);
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_lstprint(t_list *lst, void (*print)(void *));
-void				ft_lstpush(t_list **alst, t_list *node);
-void				ft_lstpush_front_alloc(t_list **l, void const *c, size_t s);
-void				ft_lstpush_front(t_list **l, void *c, size_t s);
-void				ft_lstpush_back_alloc(t_list **l, void const *c, size_t s);
-void				ft_lstpush_back(t_list **l, void *c, size_t s);
+typedef struct		s_link
+{
+	struct s_link	*prev;
+	struct s_link	*next;
+}					t_link;
 
-t_listd				*ft_lstd_new_alloc(void const *content,
-	size_t content_size);
-t_listd				*ft_lstd_new(void *content, size_t content_size);
-void				ft_lstd_print(t_listd_info *lst, void (*print)(void *),
-	int print_link);
-void				ft_lstd_pushback_alloc(t_listd_info **l, void const *c,
-	size_t s);
-void				ft_lstd_pushback(t_listd_info **l, void *c, size_t s);
-void				ft_lstd_pushbefore_node(t_listd_info **l, t_listd *node,
-	t_listd *new_node);
+typedef struct		s_list
+{
+	t_link			*head;
+	t_link			*tail;
+	unsigned long	size;
+}					t_list;
 
-void				ft_lst_pushafter_node(t_list *prev_node, t_list *node);
-int					ft_lstsize(t_list *l);
-void				**ft_lsttotab(t_list *l);
+typedef struct		s_str_linked
+{
+	t_link			link;
+	void			*str;
+}					t_str_linked;
+
+void				ft_list_push_back(t_list **list, t_link *data);
+void				ft_list_push_front(t_list **list, t_link *data);
+void				ft_list_init(t_list **list, t_link *link);
+unsigned long		ft_list_size(t_list *list);
+void				ft_list_del(t_list **list, void (*del)(void *));
+void				ft_list_print(t_link *link, void (*print)(void *));
+void				ft_list_push_before_node(t_list **list, t_link *node,
+						t_link *new_node);
+void				ft_list_push_after_node(t_list **list, t_link *node,
+						t_link *new_node);
+void				**ft_list_to_tab(t_list *list);
+t_list				*ft_list_str_split(char const *s, char c);
+
 int					ft_tablen(int *t);
 int					*ft_tabjoin(int *t1, int *t2);
-void				ft_free_tab(char **tab);
-t_list				*ft_lstsplit(char const *s, char c);
+void				ft_free_tab(void **tab);
+
+typedef struct		s_buff_fd
+{
+	t_link			link;
+	int				fd_num;
+	char			*rest;
+}					t_buff_fd;
+
+int					get_next_line(int const fd, char **line);
 
 #endif

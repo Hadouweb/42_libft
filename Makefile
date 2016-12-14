@@ -21,23 +21,16 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(ISPATH)/ft_isprint.c\
 		$(ISPATH)/ft_islower.c\
 		$(ISPATH)/ft_isupper.c\
-		$(LISTPATH)/ft_lstadd.c\
-		$(LISTPATH)/ft_lstdel.c\
-		$(LISTPATH)/ft_lstdelone.c\
-		$(LISTPATH)/ft_lstiter.c\
-		$(LISTPATH)/ft_lstmap.c\
-		$(LISTPATH)/ft_lstnew.c\
-		$(LISTPATH)/ft_lstpush_back.c\
-		$(LISTPATH)/ft_lstpush_front.c\
-		$(LISTPATH)/ft_lstsize.c\
-		$(LISTPATH)/ft_lstsplit.c\
-		$(LISTPATH)/ft_lsttotab.c\
-		$(LISTPATH)/ft_lst_pushafter_node.c\
-		$(LISTPATH)/ft_lstd_pushback.c\
-		$(LISTPATH)/ft_lstd_new.c\
-		$(LISTPATH)/ft_lstd_pushbefore_node.c\
-		$(LISTPATH)/ft_lstd_print.c\
-		$(LISTPATH)/ft_lstprint.c\
+        $(LISTPATH)/ft_list_push_back.c\
+        $(LISTPATH)/ft_list_push_front.c\
+        $(LISTPATH)/ft_list_init.c\
+        $(LISTPATH)/ft_list_size.c\
+        $(LISTPATH)/ft_list_del.c\
+        $(LISTPATH)/ft_list_print.c\
+        $(LISTPATH)/ft_list_push_before_node.c\
+        $(LISTPATH)/ft_list_push_after_node.c\
+        $(LISTPATH)/ft_list_to_tab.c\
+        $(LISTPATH)/ft_list_str_split.c\
 		$(MEMPATH)/ft_bzero.c\
 		$(MEMPATH)/ft_memalloc.c\
 		$(MEMPATH)/ft_memccpy.c\
@@ -74,8 +67,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(STRPATH)/ft_striter.c\
 		$(STRPATH)/ft_striteri.c\
 		$(STRPATH)/ft_strjoin.c\
-		$(STRPATH)/ft_strjoin_free_s2.c\
-		$(STRPATH)/ft_strjoin_free_s1.c\
+		$(STRPATH)/ft_strjoin_free.c\
 		$(STRPATH)/ft_strlcat.c\
 		$(STRPATH)/ft_strcat.c\
 		$(STRPATH)/ft_strlen.c\
@@ -102,11 +94,9 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(TABPATH)/ft_free_tab.c\
 		$(SRCPATH)/get_next_line.c\
 		$(TREEPATH)/ft_tree_add.c\
-		$(TREEPATH)/ft_tree_new.c\
 		$(TREEPATH)/ft_tree_preorder.c\
 		$(TREEPATH)/ft_tree_inorder.c\
 		$(TREEPATH)/ft_tree_postorder.c\
-		$(TREEPATH)/ft_tree_print_node.c\
 
 OBJ = $(SRC:.c=.o)
 

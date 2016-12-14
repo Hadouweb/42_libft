@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_list_push_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 00:34:15 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/11/25 00:48:36 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/12/13 05:00:24 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/12/13 05:00:25 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_list_push_front(t_list **list, t_link *link)
 {
-	t_list	*tmp;
-
-	tmp = NULL;
-	while (*alst)
+	if (*list == NULL)
+		ft_list_init(list, link);
+	else
 	{
-		(*del)((*alst)->content, (*alst)->content_size);
-		tmp = *alst;
-		free(*alst);
-		(*alst) = NULL;
-		*alst = tmp->next;
+		link->next = (*list)->head;
+		(*list)->head = link;
+		(*list)->size++;
 	}
 }

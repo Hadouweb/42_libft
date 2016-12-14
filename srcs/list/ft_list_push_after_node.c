@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_list_push_after_node.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 00:33:36 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/11/25 00:48:07 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/12/13 05:00:03 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/12/13 05:00:04 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+void	ft_list_push_after_node(t_list **list, t_link *node, t_link *new_node)
 {
-	if (*alst)
-		(*del)((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	t_link	*n_next;
+
+	if (node == new_node)
+		return ;
+	if (node->next != NULL)
+	{
+		n_next = node->next;
+		n_next->prev = new_node;
+		new_node->prev = node;
+		node->next = new_node;
+		new_node->next = n_next;
+	}
+	else
+	{
+		new_node->prev = node;
+		node->next = new_node;
+		(*list)->tail = new_node;
+	}
+	(*list)->size++;
 }

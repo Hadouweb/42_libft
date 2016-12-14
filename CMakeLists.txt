@@ -5,6 +5,8 @@ SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}" )
 
 #add_subdirectory(unit_test)
 
+include_directories(includes)
+
 set(SRCS
     srcs/bit/ft_printbit.c
     srcs/bit/ft_reversebit.c
@@ -15,23 +17,6 @@ set(SRCS
     srcs/is/ft_isprint.c
     srcs/is/ft_islower.c
     srcs/is/ft_isupper.c
-    srcs/list/ft_lstadd.c
-    srcs/list/ft_lstdel.c
-    srcs/list/ft_lstdelone.c
-    srcs/list/ft_lstiter.c
-    srcs/list/ft_lstmap.c
-    srcs/list/ft_lstnew.c
-    srcs/list/ft_lstd_new.c
-    srcs/list/ft_lstd_pushbefore_node.c
-    srcs/list/ft_lstprint.c
-    srcs/list/ft_lstpush_back.c
-    srcs/list/ft_lstpush_front.c
-    srcs/list/ft_lst_pushafter_node.c
-    srcs/list/ft_lstd_pushback.c
-    srcs/list/ft_lstd_print.c
-    srcs/list/ft_lstsize.c
-    srcs/list/ft_lstsplit.c
-    srcs/list/ft_lsttotab.c
     srcs/mem/ft_bzero.c
     srcs/mem/ft_memalloc.c
     srcs/mem/ft_memccpy.c
@@ -60,7 +45,7 @@ set(SRCS
     srcs/str/ft_strclr.c
     srcs/str/ft_strcmp.c
     srcs/str/ft_stradd_char.c
-    srcs/str/ft_strjoin_free_s1.c
+    srcs/str/ft_strjoin_free.c
     srcs/str/ft_strcpy.c
     srcs/tab/ft_free_tab.c
     srcs/str/ft_strcpy_limit.c
@@ -70,7 +55,6 @@ set(SRCS
     srcs/str/ft_striter.c
     srcs/str/ft_striteri.c
     srcs/str/ft_strjoin.c
-    srcs/str/ft_strjoin_free_s2.c
     srcs/str/ft_strlcat.c
     srcs/str/ft_strlen.c
     srcs/str/ft_strlen_limit.c
@@ -96,11 +80,19 @@ set(SRCS
     srcs/str/ft_nblen.c
     srcs/str/ft_atoi_base.c
     srcs/tree/ft_tree_add.c
-    srcs/tree/ft_tree_new.c
     srcs/tree/ft_tree_preorder.c
     srcs/tree/ft_tree_inorder.c
     srcs/tree/ft_tree_postorder.c
-    srcs/tree/ft_tree_print_node.c
+    srcs/list/ft_list_push_back.c
+    srcs/list/ft_list_push_front.c
+    srcs/list/ft_list_init.c
+    srcs/list/ft_list_size.c
+    srcs/list/ft_list_del.c
+    srcs/list/ft_list_print.c
+    srcs/list/ft_list_push_before_node.c
+    srcs/list/ft_list_push_after_node.c
+    srcs/list/ft_list_to_tab.c
+    srcs/list/ft_list_str_split.c
     )
 
 set(HEADERS includes/libft.h)

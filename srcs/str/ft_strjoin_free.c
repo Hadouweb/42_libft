@@ -12,7 +12,20 @@
 
 #include "libft.h"
 
-char	*ft_strjoin_free_s1(char *s1, char *s2)
+static void		free_str(char **s1, char **s2, int free_token)
+{
+	if (free_token == 1)
+		ft_strdel(s1);
+	else if (free_token == 2)
+		ft_strdel(s2);
+	else if (free_token == 3)
+	{
+		ft_strdel(s1);
+		ft_strdel(s2);
+	}
+}
+
+char			*ft_strjoin_free(char *s1, char *s2, int free_token)
 {
 	size_t	i;
 	size_t	j;
@@ -34,6 +47,6 @@ char	*ft_strjoin_free_s1(char *s1, char *s2)
 		j++;
 	}
 	str[i] = '\0';
-	ft_strdel(&s1);
+	free_str(&s1, &s2, free_token);
 	return (str);
 }

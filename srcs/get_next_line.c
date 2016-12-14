@@ -12,94 +12,100 @@
 
 #include "libft.h"
 
-static t_save	*ft_create_fd(int fd_pnum)
+static t_buff_fd	*ft_make_buff_fd(int fd_num)
 {
-	t_save		*fd;
+	t_buff_fd		*buff;
 
-	if ((fd = (t_save *)ft_memalloc(sizeof(t_save))) == NULL)
+	if ((buff = (t_buff_fd *)ft_memalloc(sizeof(t_buff_fd))) == NULL)
 		return (NULL);
-	fd->rest = ft_strnew(1);
-	fd->fd_num = fd_pnum;
-	fd->next = NULL;
-	return (fd);
+	buff->rest = ft_strnew(1);
+	buff->fd_num = fd_num;
+	return (buff);
 }
 
-static int		ft_save(t_save **s, char *buf, char **line)
+static int			ft_concat(t_buff_fd **bf, char *buf, char **line, int find)
 {
 	char	*eol;
 	char	*tmp;
 
 	if ((eol = ft_strchr(buf, '\n')) != NULL && eol++)
 	{
-		if ((*s)->rest && ft_strchr((*s)->rest, '\n') == NULL)
-			*line = ft_strjoin_free_s2((*s)->rest, ft_strcpy_limit(buf, '\n'));
-		else
+		if ((*bf)->rest && ft_strchr((*bf)->rest, '\n') == NULL)
+			*line = ft_strjoin_free((*bf)->rest, ft_strcpy_limit(buf, '\n'), 3);
+		else if ((find = 1))
 			*line = ft_strcpy_limit(buf, '\n');
-		tmp = (*s)->rest;
-		(*s)->rest = ft_strdup(eol);
-		ft_strdel(&tmp);
+		tmp = (*bf)->rest;
+		(*bf)->rest = ft_strdup(eol);
+		if (find)
+			ft_strdel(&tmp);
 		return (1);
 	}
 	else
 	{
-		tmp = (*s)->rest;
-		if ((*s)->rest)
-			(*s)->rest = ft_strjoin((*s)->rest, buf);
+		tmp = (*bf)->rest;
+		if ((*bf)->rest)
+			(*bf)->rest = ft_strjoin((*bf)->rest, buf);
 		else
-			(*s)->rest = ft_strdup(buf);
+			(*bf)->rest = ft_strdup(buf);
 		ft_strdel(&tmp);
 	}
 	return (0);
 }
 
-static t_save	*ft_get_list(t_save **s, int fd)
+static t_buff_fd	*ft_get_buff_fd(t_list **list, int fd)
 {
-	t_save			*lst;
+	t_link		*l;
+	t_buff_fd	*new_fd;
 
-	if (!*s)
-		*s = ft_create_fd(fd);
-	lst = *s;
-	while (lst->next && lst->fd_num != fd)
-		lst = lst->next;
-	if (lst->next == NULL && lst->fd_num != fd)
-		lst->next = ft_create_fd(fd);
-	lst = *s;
-	while (lst && lst->fd_num != fd)
-		lst = lst->next;
-	return (lst);
+	if (*list == NULL)
+	{
+		new_fd = ft_make_buff_fd(fd);
+		ft_list_push_back(list, &new_fd->link);
+		return (new_fd);
+	}
+	l = (*list)->head;
+	while (l && ((t_buff_fd*)l)->fd_num != fd)
+		l = l->next;
+	if (l == NULL)
+	{
+		new_fd = ft_make_buff_fd(fd);
+		ft_list_push_back(list, &new_fd->link);
+		return (new_fd);
+	}
+	return ((t_buff_fd*)l);
 }
 
-static int		ft_verif_last_line(t_save *lst, char **line, int ret)
+static int			ft_verif_last_line(t_buff_fd *bf, char **line, int ret)
 {
-	if (ret != -1 && lst->rest && (*line = ft_strdup(lst->rest)) != NULL)
+	if (ret != -1 && bf->rest && (*line = ft_strdup(bf->rest)) != NULL)
 	{
-		if (lst->rest && ft_strlen(lst->rest))
+		if (bf->rest && ft_strlen(bf->rest))
 			ret = 1;
 		else
 			ret = 0;
-		ft_strdel(&lst->rest);
+		ft_strdel(&bf->rest);
 	}
 	return (ret);
 }
 
-int				get_next_line(int const fd, char **line)
+int					get_next_line(int const fd, char **line)
 {
-	char			buf[BUFF_SIZE + 1];
-	int				ret;
-	static t_save	*s;
-	t_save			*lst;
+	char				buf[BUFF_SIZE + 1];
+	int					ret;
+	t_buff_fd			*bf;
+	static t_list		*list = NULL;
 
-	if (!line)
-		return (-1);
-	lst = ft_get_list(&s, fd);
-	if (lst && lst->rest && ft_strchr(lst->rest, '\n') &&
-			ft_save(&lst, lst->rest, line))
+	bf = ft_get_buff_fd(&list, fd);
+	if (bf && bf->rest && ft_strchr(bf->rest, '\n'))
+	{
+		ft_concat(&bf, bf->rest, line, 0);
 		return (1);
+	}
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		if (ft_save(&lst, buf, line))
+		if (ft_concat(&bf, buf, line, 0))
 			return (1);
 	}
-	return (ft_verif_last_line(lst, line, ret));
+	return (ft_verif_last_line(bf, line, ret));
 }

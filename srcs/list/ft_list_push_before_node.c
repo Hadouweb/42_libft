@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_pushafter_node.c                            :+:      :+:    :+:   */
+/*   ft_list_push_before_node.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/25 08:52:48 by nle-bret          #+#    #+#             */
-/*   Updated: 2016/10/25 08:52:53 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/12/13 05:00:19 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/12/13 05:00:20 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lst_pushafter_node(t_list *prev_node, t_list *node)
+void	ft_list_push_before_node(t_list **list, t_link *node, t_link *new_node)
 {
-	t_list *n;
+	t_link	*n_prev;
 
-	if (prev_node->next != NULL)
+	if (node == new_node)
+		return ;
+	if (node->prev != NULL)
 	{
-		n = prev_node->next;
-		prev_node->next = node;
-		node->next = n;
+		n_prev = node->prev;
+		n_prev->next = new_node;
+		new_node->next = node;
+		node->prev = new_node;
+		new_node->prev = n_prev;
 	}
+	else
+	{
+		new_node->next = node;
+		node->prev = new_node;
+		(*list)->head = new_node;
+	}
+	(*list)->size++;
 }

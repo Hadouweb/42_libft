@@ -1,45 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush_front.c                                 :+:      :+:    :+:   */
+/*   ft_list_del.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 00:32:50 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/11/25 03:45:52 by nle-bret         ###   ########.fr       */
+/*   Created: 2016/12/13 04:59:49 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/12/13 04:59:50 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstpush_front_alloc(t_list **l, void const *c, size_t s)
+void	ft_list_del(t_list **list, void (*del)(void *))
 {
-	t_list	*list;
-	t_list	*new;
+	t_link	*l;
+	t_link	*tmp;
 
-	list = *l;
-	if (list)
+	if (*list == NULL)
+		return ;
+	l = (*list)->head;
+	while (l)
 	{
-		new = ft_lstnew_alloc(c, s);
-		new->next = list;
-		*l = new;
+		tmp = l;
+		l = l->next;
+		del(tmp);
 	}
-	else
-		*l = ft_lstnew_alloc(c, s);
-}
-
-void	ft_lstpush_front(t_list **l, void *c, size_t s)
-{
-	t_list	*list;
-	t_list	*new;
-
-	list = *l;
-	if (list)
-	{
-		new = ft_lstnew(c, s);
-		new->next = list;
-		*l = new;
-	}
-	else
-		*l = ft_lstnew(c, s);
+	free(*list);
+	*list = NULL;
 }
