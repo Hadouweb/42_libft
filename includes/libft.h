@@ -116,6 +116,7 @@ typedef struct		s_link
 
 typedef struct		s_list
 {
+	t_link			link;
 	t_link			*head;
 	t_link			*tail;
 	unsigned long	size;

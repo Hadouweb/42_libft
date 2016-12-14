@@ -14,6 +14,8 @@
 
 void	ft_list_push_back(t_list **list, t_link *link)
 {
+	if (link == NULL)
+		return ;
 	if (*list == NULL)
 		ft_list_init(list, link);
 	else
