@@ -18,6 +18,8 @@
 
 # define BUFF_SIZE 10
 
+# define PTR_NODE(ptr, t, member) (t*) ((char*)ptr - (char*)&((t*)0)->member)
+
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
