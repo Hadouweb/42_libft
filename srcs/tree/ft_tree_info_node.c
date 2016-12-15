@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void		ft_tree_info_node(t_tree *tree, char *str)
+void		ft_tree_info_node(t_tree *tree)
 {
 	t_tree		*parent;
 
@@ -26,10 +26,7 @@ void		ft_tree_info_node(t_tree *tree, char *str)
 	if (parent)
 	{
 		ft_putstr("|parent : \t");
-		if (str)
-			ft_putstr(str);
-		else
-			ft_putnbr(parent->depth);
+		ft_putnbr(parent->depth);
 		ft_putstr("\n");
 		if (parent->left == tree)
 			ft_putendl("|\t\tLEFT");
