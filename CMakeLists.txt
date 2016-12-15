@@ -80,6 +80,7 @@ set(SRCS
     srcs/str/ft_nblen.c
     srcs/str/ft_atoi_base.c
     srcs/tree/ft_tree_add.c
+    srcs/tree/ft_tree_info_node.c
     srcs/tree/ft_tree_preorder.c
     srcs/tree/ft_tree_inorder.c
     srcs/tree/ft_tree_postorder.c

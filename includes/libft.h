@@ -97,6 +97,7 @@ enum	e_tree
 	TREE_RIGHT
 };
 
+void				ft_tree_info_node(t_tree *tree);
 t_tree				*ft_tree_add(t_tree *ref_node, enum e_tree edge,
 						t_tree *node);
 void				ft_tree_inorder(t_tree *node, void (*f)(void *node));

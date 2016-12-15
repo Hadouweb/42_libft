@@ -94,6 +94,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(TABPATH)/ft_free_tab.c\
 		$(SRCPATH)/get_next_line.c\
 		$(TREEPATH)/ft_tree_add.c\
+		$(TREEPATH)/ft_tree_info_node.c\
 		$(TREEPATH)/ft_tree_preorder.c\
 		$(TREEPATH)/ft_tree_inorder.c\
 		$(TREEPATH)/ft_tree_postorder.c\
