@@ -85,8 +85,15 @@ void				ft_putstr_fd(const char *s, int fd);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
+typedef struct		s_link
+{
+	struct s_link	*prev;
+	struct s_link	*next;
+}					t_link;
+
 typedef struct		s_tree
 {
+	struct s_link	link;
 	int				depth;
 	struct s_tree	*parent;
 	struct s_tree	*left;
@@ -110,12 +117,6 @@ void				ft_printbit(unsigned char octet);
 unsigned char		ft_reversebit(unsigned char octet);
 char				*ft_itoa_base(int n, int base);
 void				ft_putnbr_base(int n, int base);
-
-typedef struct		s_link
-{
-	struct s_link	*prev;
-	struct s_link	*next;
-}					t_link;
 
 typedef struct		s_list
 {
