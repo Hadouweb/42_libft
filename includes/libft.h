@@ -20,6 +20,24 @@
 
 # define PTR_NODE(ptr, t, member) (t*) ((char*)ptr - (char*)&((t*)0)->member)
 
+# define C_BLACK(x) "\033[30;1m" x "\033[0m"
+# define C_RED(x) "\033[31;1m" x "\033[0m"
+# define C_GREEN(x) "\033[32;1m" x "\033[0m"
+# define C_YELLOW(x) "\033[33;1m" x "\033[0m"
+# define C_BLUE(x) "\033[34;1m" x "\033[0m"
+# define C_MAGENTA(x) "\033[35;1m" x "\033[0m"
+# define C_CYAN(x) "\033[36;1m" x "\033[0m"
+# define C_WHITE(x) "\033[37;1m" x "\033[0m"
+
+# define C_BOLD_BLACK(x) "\033[1m\033[30m;1m" x "\033[0m"
+# define C_BOLD_RED(x) "\033[1m\033[31m;1m" x "\033[0m"
+# define C_BOLD_GREEN(x) "\033[1m\033[32m;1m" x "\033[0m"
+# define C_BOLD_YELLOW(x) "\033[1m\033[33m;1m" x "\033[0m"
+# define C_BOLD_BLUE(x) "\033[1m\033[34m;1m" x "\033[0m"
+# define C_BOLD_MAGENTA(x) "\033[1m\033[35m;1m" x "\033[0m"
+# define C_BOLD_CYAN(x) "\033[1m\033[36m;1m" x "\033[0m"
+# define C_BOLD_WHITE(x) "\033[1m\033[37m;1m" x "\033[0m"
+
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
