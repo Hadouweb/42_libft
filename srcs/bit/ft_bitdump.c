@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexdump.c                                       :+:      :+:    :+:   */
+/*   ft_bitdump.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/05 04:16:42 by nle-bret          #+#    #+#             */
-/*   Updated: 2017/03/05 04:16:44 by nle-bret         ###   ########.fr       */
+/*   Created: 2017/03/05 04:26:27 by nle-bret          #+#    #+#             */
+/*   Updated: 2017/03/05 04:26:29 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void		ft_print_byte(unsigned char byte)
-{
-	static char	hexa[16] = "0123456789abcdef";
-
-	write(1, &hexa[byte >> 4], 1);
-	write(1, &hexa[byte & 15], 1);
-}
 
 static void		ft_print_str(unsigned char *str, int len)
 {
@@ -45,22 +37,17 @@ static void		ft_print_line(unsigned char *ptr, int len)
 	col = 40;
 	while (i < len)
 	{
-		ft_print_byte(ptr[i]);
-		col -= 2;
-		if (i + 1 < len)
-		{
-			ft_print_byte(ptr[i + 1]);
-			write(1, " ", 1);
-			col -= 3;
-		}
-		i += 2;
+		ft_printbit(ptr[i]);
+		write(1, " ", 1);
+		col -= 9;
+		i++;
 	}
 	while (col--)
 		write(1, " ", 1);
 	ft_print_str(ptr, len);
 }
 
-void			ft_hex_dump(const void *addr, size_t size)
+void			ft_bit_dump(const void *addr, size_t size)
 {
 	unsigned char	*ptr;
 	int				nb_line;
@@ -68,13 +55,13 @@ void			ft_hex_dump(const void *addr, size_t size)
 	int				i;
 
 	ptr = (unsigned char*)addr;
-	nb_line = size / 16;
-	nb_byte = size % 16;
+	nb_line = size / 4;
+	nb_byte = size % 4;
 	i = 0;
 	while (i < nb_line)
 	{
-		ft_print_line(ptr, 16);
-		ptr += 16;
+		ft_print_line(ptr, 4);
+		ptr += 4;
 		i++;
 	}
 	if (nb_byte)

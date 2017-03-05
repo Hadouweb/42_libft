@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-void	ft_printbit(unsigned char octet)
+void	ft_printbit(unsigned char byte)
 {
 	unsigned char	i;
 
 	i = 1 << 7;
 	while (i > 0)
 	{
-		if (octet & i)
+		if (byte & i)
 			ft_putchar('1');
 		else
 			ft_putchar('0');

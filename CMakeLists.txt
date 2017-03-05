@@ -11,6 +11,7 @@ set(SRCS
     srcs/bit/ft_printbit.c
     srcs/bit/ft_reversebit.c
     srcs/bit/ft_hexdump.c
+    srcs/bit/ft_bitdump.c
     srcs/is/ft_isalnum.c
     srcs/is/ft_isalpha.c
     srcs/is/ft_isascii.c

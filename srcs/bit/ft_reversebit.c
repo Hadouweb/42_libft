@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-unsigned char	ft_reversebit(unsigned char octet)
+unsigned char	ft_reversebit(unsigned char byte)
 {
 	unsigned char	read;
 	unsigned char	write;
@@ -23,7 +23,7 @@ unsigned char	ft_reversebit(unsigned char octet)
 	result = 0;
 	while (read)
 	{
-		if (octet & read)
+		if (byte & read)
 			result |= write;
 		read <<= 1;
 		write >>= 1;
