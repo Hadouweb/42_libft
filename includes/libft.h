@@ -133,6 +133,7 @@ void				ft_tree_postorder(t_tree *node, void (*f)(void *node));
 
 void				ft_printbit(unsigned char octet);
 unsigned char		ft_reversebit(unsigned char octet);
+void				print_memory(const void *addr, size_t size);
 char				*ft_itoa_base(int n, int base);
 void				ft_putnbr_base(int n, int base);
 

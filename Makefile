@@ -14,6 +14,7 @@ NAME = libft.a
 
 SRC = 	$(BITPATH)/ft_printbit.c\
 		$(BITPATH)/ft_reversebit.c\
+		$(BITPATH)/ft_hexdump.c\
 		$(ISPATH)/ft_isalnum.c\
 		$(ISPATH)/ft_isalpha.c\
 		$(ISPATH)/ft_isascii.c\
