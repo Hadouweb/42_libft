@@ -28,6 +28,7 @@ set(SRCS
     srcs/mem/ft_memdel.c
     srcs/mem/ft_memmove.c
     srcs/mem/ft_memset.c
+    srcs/print/ft_print_addr.c
     srcs/print/ft_putchar.c
     srcs/print/ft_putchar_fd.c
     srcs/print/ft_putendl.c

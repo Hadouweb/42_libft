@@ -43,6 +43,7 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(MEMPATH)/ft_memmove.c\
 		$(MEMPATH)/ft_memset.c\
 		$(PRINTPATH)/ft_putchar.c\
+		$(PRINTPATH)/ft_print_addr.c\
 		$(PRINTPATH)/ft_putchar_fd.c\
 		$(PRINTPATH)/ft_putendl.c\
 		$(PRINTPATH)/ft_putendl_fd.c\

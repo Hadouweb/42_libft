@@ -16,8 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#include <stdio.h>
-
 # define BUFF_SIZE 10
 
 # define PTR_NODE(ptr, t, member) (t*) ((char*)ptr - (char*)&((t*)0)->member)
@@ -133,11 +131,13 @@ void				ft_tree_inorder(t_tree *node, void (*f)(void *node));
 void				ft_tree_preorder(t_tree *node, void (*f)(void *node));
 void				ft_tree_postorder(t_tree *node, void (*f)(void *node));
 
+void				ft_print_addr(void *ptr);
 void				ft_printbit(unsigned char byte);
 unsigned char		ft_reversebit(unsigned char byte);
 void				ft_hex_dump(const void *addr, size_t size);
 void				ft_bit_dump(const void *addr, size_t size);
 char				*ft_itoa_base(int n, int base);
+char				*ft_ulltoa_base(unsigned long long n, int base);
 void				ft_putnbr_base(int n, int base);
 
 typedef struct		s_list
