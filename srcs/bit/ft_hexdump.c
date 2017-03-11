@@ -16,8 +16,10 @@ static void		ft_print_byte(unsigned char byte)
 {
 	static char	hexa[16] = "0123456789abcdef";
 
+	write(1, "\033[34;1m", ft_strlen("\033[34;1m"));
 	write(1, &hexa[byte >> 4], 1);
 	write(1, &hexa[byte & 15], 1);
+	write(1, "\033[0m", ft_strlen("\033[0m"));
 }
 
 static void		ft_print_str(unsigned char *str, int len)
@@ -25,6 +27,7 @@ static void		ft_print_str(unsigned char *str, int len)
 	int	i;
 
 	i = 0;
+	write(1, "\033[32;1m", ft_strlen("\033[33;1m"));
 	while (i < len)
 	{
 		if (str[i] >= 32 && str[i] < 127)
@@ -34,6 +37,7 @@ static void		ft_print_str(unsigned char *str, int len)
 		i++;
 	}
 	write(1, "\n", 1);
+	write(1, "\033[0m", ft_strlen("\033[0m"));
 }
 
 static void		ft_print_line(unsigned char *ptr, int len)

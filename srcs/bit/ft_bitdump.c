@@ -17,6 +17,7 @@ static void		ft_print_str(unsigned char *str, int len)
 	int	i;
 
 	i = 0;
+	write(1, "\033[32;1m", ft_strlen("\033[34;1m"));
 	while (i < len)
 	{
 		if (str[i] >= 32 && str[i] < 127)
@@ -26,6 +27,7 @@ static void		ft_print_str(unsigned char *str, int len)
 		i++;
 	}
 	write(1, "\n", 1);
+	write(1, "\033[0m", ft_strlen("\033[0m"));
 }
 
 static void		ft_print_line(unsigned char *ptr, int len)
@@ -35,6 +37,7 @@ static void		ft_print_line(unsigned char *ptr, int len)
 
 	i = 0;
 	col = 40;
+	write(1, "\033[34;1m", ft_strlen("\033[35;1m"));
 	while (i < len)
 	{
 		ft_printbit(ptr[i]);
@@ -44,6 +47,7 @@ static void		ft_print_line(unsigned char *ptr, int len)
 	}
 	while (col--)
 		write(1, " ", 1);
+	write(1, "\033[0m", ft_strlen("\033[0m"));
 	ft_print_str(ptr, len);
 }
 
