@@ -17,8 +17,10 @@ void	ft_print_addr(void *ptr)
 	char			*str;
 	unsigned long	n;
 
+	if (ptr == NULL)
+		return ;
 	n = (unsigned long)ptr;
 	str = ft_ulltoa_base(n, 16);
-	write(1, "0X", 2);
+	write(1, "0x", 2);
 	write(1, str, ft_strlen(str));
 }
