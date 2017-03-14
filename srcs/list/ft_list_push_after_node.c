@@ -16,7 +16,7 @@ void	ft_list_push_after_node(t_list *list, t_link *node, t_link *new_node)
 {
 	t_link	*n_next;
 
-	if (node == new_node)
+	if (node == new_node || node == NULL || new_node == NULL)
 		return ;
 	if (node->next != NULL)
 	{

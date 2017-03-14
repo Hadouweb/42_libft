@@ -16,15 +16,15 @@ void	ft_list_push_before_node(t_list *list, t_link *node, t_link *new_node)
 {
 	t_link	*n_prev;
 
-	if (node == new_node)
+	if (node == new_node || node == NULL || new_node == NULL)
 		return ;
 	if (node->prev != NULL)
 	{
 		n_prev = node->prev;
 		n_prev->next = new_node;
+		new_node->prev = n_prev;
 		new_node->next = node;
 		node->prev = new_node;
-		new_node->prev = n_prev;
 	}
 	else
 	{
