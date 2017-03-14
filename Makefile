@@ -25,7 +25,6 @@ SRC = 	$(BITPATH)/ft_printbit.c\
 		$(ISPATH)/ft_isupper.c\
         $(LISTPATH)/ft_list_push_back.c\
         $(LISTPATH)/ft_list_push_front.c\
-        $(LISTPATH)/ft_list_init.c\
         $(LISTPATH)/ft_list_size.c\
         $(LISTPATH)/ft_list_del.c\
         $(LISTPATH)/ft_list_print.c\

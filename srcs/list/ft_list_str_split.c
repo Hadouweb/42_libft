@@ -90,7 +90,7 @@ t_list			*ft_list_str_split(char const *s, char delimiter)
 			k++;
 		size = ft_strlen_split(&s[k], delimiter) + 1;
 		tmp = ft_subtab(&s[k], delimiter);
-		ft_list_push_back(&list, &make_str_node(tmp)->link);
+		ft_list_push_back(list, &make_str_node(tmp)->link);
 		k += size;
 	}
 	return (list);

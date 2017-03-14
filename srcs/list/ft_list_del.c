@@ -12,20 +12,18 @@
 
 #include "libft.h"
 
-void	ft_list_del(t_list **list, void (*del)(void *))
+void	ft_list_del(t_list *list, void (*del)(void *))
 {
 	t_link	*l;
 	t_link	*tmp;
 
-	if (*list == NULL)
+	if (list == NULL)
 		return ;
-	l = (*list)->head;
+	l = list->head;
 	while (l)
 	{
 		tmp = l;
 		l = l->next;
 		del(tmp);
 	}
-	free(*list);
-	*list = NULL;
 }

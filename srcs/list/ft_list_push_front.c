@@ -12,14 +12,18 @@
 
 #include "libft.h"
 
-void	ft_list_push_front(t_list **list, t_link *link)
+void	ft_list_push_front(t_list *list, t_link *link)
 {
-	if (*list == NULL)
-		ft_list_init(list, link);
-	else
+	if (link == NULL)
+		return ;
+	if (list->tail == NULL)
 	{
-		link->next = (*list)->head;
-		(*list)->head = link;
-		(*list)->size++;
+		list->head = link;
+		list->tail = link;
+		list->size++;
+		return ;
 	}
+	link->next = list->head;
+	list->head = link;
+	list->size++;
 }

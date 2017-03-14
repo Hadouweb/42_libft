@@ -12,17 +12,19 @@
 
 #include "libft.h"
 
-void	ft_list_push_back(t_list **list, t_link *link)
+void	ft_list_push_back(t_list *list, t_link *link)
 {
 	if (link == NULL)
 		return ;
-	if (*list == NULL)
-		ft_list_init(list, link);
-	else
+	if (list->head == NULL)
 	{
-		(*list)->tail->next = link;
-		link->prev = (*list)->tail;
-		(*list)->tail = link;
-		(*list)->size++;
+		list->head = link;
+		list->tail = link;
+		list->size++;
+		return ;
 	}
+	list->tail->next = link;
+	link->prev = list->tail;
+	list->tail = link;
+	list->size++;
 }

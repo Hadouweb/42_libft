@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_list_push_before_node(t_list **list, t_link *node, t_link *new_node)
+void	ft_list_push_before_node(t_list *list, t_link *node, t_link *new_node)
 {
 	t_link	*n_prev;
 
@@ -30,7 +30,7 @@ void	ft_list_push_before_node(t_list **list, t_link *node, t_link *new_node)
 	{
 		new_node->next = node;
 		node->prev = new_node;
-		(*list)->head = new_node;
+		list->head = new_node;
 	}
-	(*list)->size++;
+	list->size++;
 }

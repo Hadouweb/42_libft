@@ -60,7 +60,7 @@ static t_buff_fd	*ft_get_buff_fd(t_list **list, int fd)
 	if (*list == NULL)
 	{
 		new_fd = ft_make_buff_fd(fd);
-		ft_list_push_back(list, &new_fd->link);
+		ft_list_push_back(*list, &new_fd->link);
 		return (new_fd);
 	}
 	l = (*list)->head;
@@ -69,7 +69,7 @@ static t_buff_fd	*ft_get_buff_fd(t_list **list, int fd)
 	if (l == NULL)
 	{
 		new_fd = ft_make_buff_fd(fd);
-		ft_list_push_back(list, &new_fd->link);
+		ft_list_push_back(*list, &new_fd->link);
 		return (new_fd);
 	}
 	return ((t_buff_fd*)l);

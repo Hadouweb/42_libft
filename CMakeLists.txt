@@ -89,8 +89,7 @@ set(SRCS
     srcs/tree/ft_tree_postorder.c
     srcs/list/ft_list_push_back.c
     srcs/list/ft_list_push_front.c
-    srcs/list/ft_list_init.c
-    srcs/list/ft_list_size.c
+        srcs/list/ft_list_size.c
     srcs/list/ft_list_del.c
     srcs/list/ft_list_print.c
     srcs/list/ft_list_push_before_node.c

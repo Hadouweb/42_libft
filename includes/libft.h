@@ -154,15 +154,14 @@ typedef struct		s_str_linked
 	void			*str;
 }					t_str_linked;
 
-void				ft_list_push_back(t_list **list, t_link *data);
-void				ft_list_push_front(t_list **list, t_link *data);
-void				ft_list_init(t_list **list, t_link *link);
+void				ft_list_push_back(t_list *list, t_link *link);
+void				ft_list_push_front(t_list *list, t_link *link);
 unsigned long		ft_list_size(t_list *list);
-void				ft_list_del(t_list **list, void (*del)(void *));
+void				ft_list_del(t_list *list, void (*del)(void *));
 void				ft_list_print(t_link *link, void (*print)(void *));
-void				ft_list_push_before_node(t_list **list, t_link *node,
+void				ft_list_push_before_node(t_list *list, t_link *node,
 						t_link *new_node);
-void				ft_list_push_after_node(t_list **list, t_link *node,
+void				ft_list_push_after_node(t_list *list, t_link *node,
 						t_link *new_node);
 void				**ft_list_to_tab(t_list *list);
 t_list				*ft_list_str_split(char const *s, char c);
