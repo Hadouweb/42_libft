@@ -50,6 +50,7 @@ static void		ft_print_line(unsigned char *ptr, int len)
 	while (i < len)
 	{
 		ft_print_byte(ptr[i]);
+		write(1, " ", 1);
 		col -= 2;
 		if (i + 1 < len)
 		{
