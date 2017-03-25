@@ -16,7 +16,7 @@ void	ft_list_push_before_node(t_list *list, t_link *node, t_link *new_node)
 {
 	t_link	*n_prev;
 
-	if (node == new_node || node == NULL || new_node == NULL)
+	if (node == new_node || list == NULL || node == NULL || new_node == NULL)
 		return ;
 	if (node->prev != NULL)
 	{
